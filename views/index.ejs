@@ -17,43 +17,22 @@
 
 </head>
 
-<body>
-    <header class="header">
-        <div class="nav-home">
-            <a href="#"> <i class="fa fa-home w3-xxlarge"></i></a>
-        </div>
-        
-        <div class="nav-options">
-            <a href="#">All Games</a>
+<!-- Add Header -->
+<%- include("partials/header") %>
+<!--  -->
 
-            <div class="dropdown">
-                <button class="genres-dropdown-button">Genres <img width="10px" height="10px" src="images/down-arrow.png" alt="down arrow for more options"> </button>
-                    <div class="genres-content">
-                        <a href="#">MMORPG</a>
-                        <a href="#">Shooter</a>
-                        <a href="#">MOBA</a>
-                        <a href="#">Anime</a>
-                        <a href="#">battle Royale</a>
-                        <a href="#">Strategy</a>
-                        <a href="#">Fantasy</a>
-                        <a href="#">Sci-Fi</a>
-                        <a href="#">Card Games</a>
-                        <a href="#">Racing</a>
-                        <a href="#">Fighting</a>
-                        <a href="#">Social</a>
-                        <a href="#">Sports</a>
-                    </div>
-            </div>
-            <a href="#"> Search <i class="fa fa-search w3-xlarge"></i></a>    
-        </div>
-    </header>
+<body>
 
     <div class="content">
         <h1>Looking for a free to play Video game?</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde odioomnis quaerat alias dolor ad! Numquam vel, beatae nam eius ad saepefugiat minus non deleniti. Ad consequatur id autem!
         </p>
         
-        <button class="view-all-button">View all Games</button>
+        <form action="/games" method="GET">
+            <button class="view-all-button" type="submit">            
+                View all Games
+            </button></form>
+        
     </div>
 </body>
 </html>

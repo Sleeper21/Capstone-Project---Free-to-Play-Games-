@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free to Play Games</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+
+</head>
+
+<!-- Add Header -->
+<%- include("partials/header") %>
+<!-- -->
+
+<body>
+    <div class="games-container">
+        
+        <% var totalGames = articles.length %>
+        <p class="total-games-message"> We found <%= totalGames %> free games for you! 🎮 </p>
+        
+        <div class="game-card-container">
+            <% if (locals.articles) { %>
+                <% articles.forEach(article => { %>
+                    <a href="<%- article.id %>" class="game-card">
+                        <img src="<%- article.thumbnail %>" alt="<%- article.title %>">
+                        <h2><%- article.title %></h2>
+                        <p> <span>Genre:</span> <i><%- article.genre %></i></p>
+                        <p><%- article.short_description %></p>
+                    </a>    
+            <% }) %>     
+            <% } else { %>
+                <h2>No games found</h2>
+            <% } %>
+        </div> 
+    </div>
+
+</body>
+</html>
