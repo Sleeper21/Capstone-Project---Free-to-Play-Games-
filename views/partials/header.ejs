@@ -10,21 +10,47 @@
             <div class="dropdown">
                 <button class="genres-dropdown-button">Genres <img class="dropdown-icon" src="images/down-arrow.png" alt="down arrow for more options"> </button>
                     <div class="genres-content">
-                        <a href="#">MMORPG</a>
-                        <a href="#">Shooter</a>
-                        <a href="#">MOBA</a>
-                        <a href="#">Anime</a>
-                        <a href="#">battle Royale</a>
-                        <a href="#">Strategy</a>
-                        <a href="#">Fantasy</a>
-                        <a href="#">Sci-Fi</a>
-                        <a href="#">Card Games</a>
-                        <a href="#">Racing</a>
-                        <a href="#">Fighting</a>
-                        <a href="#">Social</a>
-                        <a href="#">Sports</a>
+                        <!-- 
+                        <a href="/games?category=MMORPG">MMORPG</a>
+                        <a href="/games?category=Shooter">Shooter</a>
+                        <a href="/games?category=MOBA">MOBA</a>
+                        <a href="/games?category=Anime">Anime</a>
+                        <a href="/games?category=battle Royale">battle Royale</a>
+                        <a href="/games?category=Strategy">Strategy</a>
+                        <a href="/games?category=Fantasy">Fantasy</a>
+                        <a href="/games?category=Sci-Fi">Sci-Fi</a>
+                        <a href="/games?category=Card Games">Card Games</a>
+                        <a href="/games?category=Racing">Racing</a>
+                        <a href="/games?category=Fighting">Fighting</a>
+                        <a href="/games?category=Social">Social</a>
+                        <a href="/games?category=Sports">Sports</a> -->
+
+                        <!-- I will change the <a> elements to buttons because the API only allows GET requests and 
+                         therefore i need to use a function onclick to redirect to the pretended URL 
+                         when a specific button is clicked -->
+
+                            <!-- Call a Js function passing the genre the button will filter -->
+                         <button class="genre-button" onclick="redirectByGenre('MMORPG')">MMORPG</button> 
+                         <button class="genre-button" onclick="redirectByGenre('Shooter')">Shooter</button>
+                         <button class="genre-button" onclick="redirectByGenre('MOBA')">MOBA</button>
+                         <button class="genre-button" onclick="redirectByGenre('Anime')">Anime</button>
+                         <button class="genre-button" onclick="redirectByGenre('battle-Royale')">battle Royale</button>
+                         <button class="genre-button" onclick="redirectByGenre('Strategy')">Strategy</button>
+                         <button class="genre-button" onclick="redirectByGenre('Fantasy')">Fantasy</button>
+                         <button class="genre-button" onclick="redirectByGenre('Sci-Fi')">Sci-Fi</button>
+                         <button class="genre-button" onclick="redirectByGenre('Card')">Card Games</button>
+                         <button class="genre-button" onclick="redirectByGenre('Racing')">Racing</button>
+                         <button class="genre-button" onclick="redirectByGenre('Fighting')">Fighting</button>
+                         <button class="genre-button" onclick="redirectByGenre('Social')">Social</button>
+                         <button class="genre-button" onclick="redirectByGenre('Sports')">Sports</button>
+
                     </div>
             </div>
-            <a href="#"> Search <i class="fa fa-search w3-large"></i></a>    
+            <div class="search">
+                <a href="#"> Search <i class="fa fa-search w3-large"></i></a>
+            </div>
+                
         </div>
+
+        <script src="/scripts/scripts.js"></script>
     </header>
