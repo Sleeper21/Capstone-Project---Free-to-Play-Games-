@@ -32,7 +32,7 @@
 
                 <% articles.forEach(article => { %>
 
-                    <a href="<%- article.id %>" class="game-card">
+                    <a href="/games?id=<%- article.id %>" class="game-card">
                         <img src="<%- article.thumbnail %>" alt="<%- article.title %>">
                         <h2><%- article.title %></h2>
                         <p class="genre-type"> <span>Genre:</span> <%- article.genre %></p>

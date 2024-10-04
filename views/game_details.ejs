@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free to Play Games</title>
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">    
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+
+</head>
+
+<!-- Add Header -->
+<%- include("partials/header") %>
+<!-- -->
+
+<body class="body-game-detail">
+    <div class="wrapper"> 
+        <div class="game-details-top-container">
+
+            <img class="game-image" src="<%- articles.thumbnail %>" alt="<%- articles.title %>">
+
+            
+            <div class="game-info game-h1">
+                <h1> <%- articles.title %> </h1>
+            </div>
+            <div class="game-info game-other-details">
+                <p><b>Developed by: </b></p>
+                <p> <%- articles.developer %> </p>
+            </div>
+            <div class="game-info game-other-details">
+                <p><b>Genre: </b></p>
+                <p> <%- articles.genre %>  </p>
+            </div>
+            <div class="game-info game-other-details">
+                <p><b>Platform: </b></p>
+                <p> <%- articles.platform %>  </p>
+            </div>
+            <div class="game-info game-other-details">
+                <p><b>Release Date: </b></p>
+                <p>  <%- articles.release_date %> </p>
+            </div>
+
+        </div>       
+        
+            <p class="game-details-description"> <%- articles.description %>  </p>
+
+        <!-- Screenshots section -->
+
+        <section class="screenshots-container">
+            <div class="screenshot-title">
+                <h1>Some screenshots of <%- articles.title %> :</h1>
+            </div>            
+
+            <div class="screenshot-only">            
+                <% articles.screenshots.forEach(screenshot => { %>
+                <div class="screenshot">
+                    <img class="screenshot-image" src="<%- screenshot.image %>" alt="Screenshot <%= articles.title %>">
+                </div>
+            <% }) %>
+            </div>
+
+        </section>
+        
+    </div> 
+</body>
+
+</html>
+
+
