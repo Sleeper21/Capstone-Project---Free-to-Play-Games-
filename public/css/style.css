@@ -15,24 +15,24 @@ body, h1, h2, h3, p, a, span {
     margin: 0;
 }
 
-body {
-    margin: 0;    
+body {    
     background-color: var(--gray);
     color: var(--white);
 }
 
-button, a { text-decoration: none;
-    border-radius: 10px; }
+button, a {
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: clamp(0.85rem, 0.6643rem + 0.9286vw, 1.5rem) !important;
+
+ }
 
 h1 {
     font-size: clamp(1.7rem, 1.3286rem + 1.8571vw, 3rem); 
     font-weight: 900;
 }
-
 h2 { font-size: clamp(1.3rem, 0.4286rem + 2.8571vw, 3rem); }
-
 p { font-size: clamp(0.85rem, 0.6643rem + 0.9286vw, 1.5rem); }
-
 img { width: 100%; }
 
 /* Nav */
@@ -46,17 +46,27 @@ img { width: 100%; }
     font-size: clamp(0.625rem, 0.3571rem + 1.3393vw, 1.5625rem);
 }
 
-/* tablet Nav querie */
+.nav-home{
+    display: flex;
+    align-items: center;
+}
+
+.all-games{
+    padding: 0 3rem;
+}
+
+/* tablet Nav */
 @media (max-width: 768px){ 
     .header {
         padding: 1.5rem 1rem;
         justify-content: space-around;
-    };
-    
+    };    
 }
-/* Mobile Nav querie */
+/* Mobile Nav */
 @media (max-width: 430px){ 
-    .header { padding: 1.5rem .5rem };
+    .header { padding: 1.5rem .5rem; }
+    .all-games { padding: 0 1.2rem;}
+    .fa-home{ font-size: 25px !important;}
 }
 
 .nav-options {
@@ -66,39 +76,42 @@ img { width: 100%; }
 }
 
 /* Nav dropdown*/
-
 .dropdown{
      display: inline-block;  /*For the dropdown button fit only the content size*/
 }
 
 .genres-dropdown-button{
+    font-family: "Afacad Flux", sans-serif;
+    font-size: clamp(0.85rem, 0.6643rem + 0.9286vw, 1.5rem) !important;
     background-color: var(--dark-gray);
     color: var(--white);
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    padding: 10px 15px;
 }
 
 .dropdown-icon {
-    width: 10px;
-    height: 10px;
+    width: .7rem;
+    height: .7rem;
 }
 
 .genre-button{
     display: block;
     padding: 5px 15px;
     width: 100%;
-    background-color: var(--dark-gray);
+    background-color: hsla(0, 0%, 0%, 0.1);
+    backdrop-filter: blur(60px) saturate(100%);
     border: none;
     color: var(--white);
     cursor: pointer;
+    border-radius: 0;
 }
 
 .genres-content{
     display: none;
     position: absolute;
-    background-color: var(--dark-gray);
+    background-color: hsla(0, 0%, 0%, 0.1);
+    backdrop-filter: blur(60px) saturate(100%);
     border-radius: 10px;
     box-shadow: 4px 4px 8px hsla(0, 0%, 0%, 0.733);
 }
@@ -119,6 +132,7 @@ img { width: 100%; }
     background-color: var(--hover);
     transition: 100ms ease-in-out;
     box-shadow: 1px -2px 5px hsla(0, 0%, 0%, 0.733);
+    border-radius: 10px;
 }
 
 
@@ -128,18 +142,19 @@ img { width: 100%; }
 }
 
 
-/* games.ejs view style */
+/********************** games.ejs view style *************************************/
+
 .games-container { padding: 2rem 5rem;}
 
-/* Laptop container querie */
+/* Laptop container */
 @media (max-width: 1500px){ 
     .games-container { padding: 1.5rem 1rem };
 }
-/* tablet container querie */
+/* tablet container */
 @media (max-width: 768px){ 
     .games-container { padding: 1.5rem 1rem };
 }
-/* Mobile container querie */
+/* Mobile container */
 @media (max-width: 430px){ 
     .games-container { padding: 1.5rem .5rem };
 }
@@ -212,14 +227,16 @@ img { width: 100%; }
 .wrapper {
     display: flex;
     flex-direction: column;
-    margin: 3rem 10rem;
+    margin: 0 4rem;
+    padding: 1.5rem 6rem;
     gap: 4rem;
+    box-shadow: 2px 4px 8px black;
 }
 
 .game-details-top-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr .5fr .5fr .5fr .5fr;
+    grid-template-rows: 1fr .5fr .5fr .5fr .5fr .5fr;
 }
 
 .game-image {
@@ -237,6 +254,7 @@ img { width: 100%; }
 .game-info {
     display: flex;
     align-items: center;
+    gap: 1rem;
     padding-left: 2rem;
 }
 
@@ -246,6 +264,11 @@ img { width: 100%; }
 
 .game-other-details {    
     margin: 0;
+}
+
+.button-game-website-container {
+    align-self: center;
+    justify-self: end;
 }
 
 .game-details-description {
@@ -259,41 +282,70 @@ img { width: 100%; }
     flex-direction: column;
     gap: 1rem;
 }
-.screenshot-only {
+.screenshot-gallery {
     display: flex;
     gap: .6rem;
 }
 
-.screenshot img {
+.screenshot-image {
     border: 3px solid black;
     border-radius: 10px;
 }
 
-/* Laptop medias for Game_details page*/
+.screenshot{
+    position: relative;
+}
+
+.open-image-icon {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    opacity: 0;
+}
+
+.screenshot-image:hover{
+    box-shadow: 2px 15px 29px hsla(0, 0%, 0%, 0.733);
+    transform: scale(1.01); /* grows 2% in size*/
+    transition: 100ms ease-in-out;    
+}
+
+.screenshot:hover .open-image-icon{
+     opacity: 1;    /* Icons comes visible . Don't know if this is the best approach*/
+}
+
+
+/* Laptop media Game_details page*/
 @media (max-width: 1200px){
     .wrapper {
         margin: 2.5rem 2rem;
     }
 }
-
- /* tablet grid medias */
+ /* tablet media Game_details page */
  @media (max-width: 768px){
     .wrapper {
         margin: 1.5rem 2.5rem;  
-    }
-    
+    }    
     .game-details-top-container {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-
     .game-image {
         min-width: 250.6px;
     }
-
     .game-info {
         padding-top: 1rem;
         padding-left: 0;
     }
+    .screenshot-gallery{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 430px) {
+    
 }

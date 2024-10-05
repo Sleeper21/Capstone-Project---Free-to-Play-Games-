@@ -50,6 +50,10 @@
                 <p>  <%- articles.release_date %> </p>
             </div>
 
+            <div class="button-game-website-container">
+                <button class="button-game-website">Play for Free</button>
+            </div>
+
         </div>       
         
             <p class="game-details-description"> <%- articles.description %>  </p>
@@ -58,17 +62,35 @@
 
         <section class="screenshots-container">
             <div class="screenshot-title">
-                <h1>Some screenshots of <%- articles.title %> :</h1>
+                <h2><b>Screenshots of <%- articles.title %> </b>:</h2>
             </div>            
 
-            <div class="screenshot-only">            
+            <div class="screenshot-gallery">            
                 <% articles.screenshots.forEach(screenshot => { %>
                 <div class="screenshot">
-                    <img class="screenshot-image" src="<%- screenshot.image %>" alt="Screenshot <%= articles.title %>">
+                    <a href="<%- screenshot.image %>"><img class="screenshot-image" src="<%- screenshot.image %>" alt="Screenshot <%= articles.title %>"></a>
+                    <i class="fa fa-search open-image-icon"></i>
                 </div>
             <% }) %>
             </div>
 
+        </section>
+
+        <section>
+            <div class="sys-req-container">
+
+                <div class="sys-req-title">
+                    <h2>System requirements:</h2>
+                </div>
+
+                <div class="sys-req-grid">
+                    <%- articles.minimum_system_requirements.os %>
+                    <%- articles.minimum_system_requirements.processor %>
+                    <%- articles.minimum_system_requirements.memory %>
+                    <%- articles.minimum_system_requirements.graphics %>
+                    <%- articles.minimum_system_requirements.storage %>
+                </div>
+            </div>
         </section>
         
     </div> 

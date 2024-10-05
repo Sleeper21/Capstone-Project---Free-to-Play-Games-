@@ -18,7 +18,6 @@ app.get("/", (req, res) => {
 })
 
 // "View All games", "filter by genre" and "game details" route
-
 //if there is a category on the request, it should load "filter by genre page,
 // if there is an id on the request, it should load "game details" page,
 // if not, show all games
