@@ -4,5 +4,9 @@
 // by Genre with the dropdown buttons. Here it receives something as "genre"
 
 function redirectByGenre(genre) {
-    window.location.href = `/games?category=${genre}`;
+    window.location.href = "/games?category=" + genre;
+};
+
+function redirectToRandomGame(title) {
+    window.location.href = "/games?id=" + title;
 };

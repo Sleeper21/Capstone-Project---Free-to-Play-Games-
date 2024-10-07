@@ -139,6 +139,11 @@ img { width: 100%; }
 /******************************************** HomePage / index *********************************************/
 .content {
     padding: 1rem 1.5rem;
+    height: 100%;
+}
+
+.home-page-body {
+    height: 100vh;
 }
 
 
@@ -173,6 +178,7 @@ img { width: 100%; }
 
 .total-games-message{
     font-size: clamp(1rem, 0.3571rem + 1.3393vw, 1.5625rem);
+    padding: 1.5rem 0;
 }
 
 .game-card-container .game-card {
@@ -216,7 +222,7 @@ img { width: 100%; }
     display: flex;
     flex-direction: column;
     margin: 0 4rem;
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 2rem 3.5rem;
     gap: 4rem;
     box-shadow: 2px 4px 8px black;
 }
@@ -257,6 +263,24 @@ img { width: 100%; }
 .button-game-website-container {
     align-self: center;
     justify-self: end;
+    padding-top: 1.5rem;
+}
+
+.button-game-website{
+    background-color: var(--dark-gray);
+    color: var(--white);
+    border-style: none;
+    border: 2px solid black;
+    padding: 10px 15px;
+    box-shadow: 3px 3px 2px black;
+}
+
+.button-game-website:hover{
+    box-shadow: none;
+    cursor: pointer;
+    background-color: var(--hover);
+    box-shadow: 1px 1px 2px black;
+    transition: 40ms ease-in;
 }
 
 .game-details-description {
@@ -292,6 +316,7 @@ img { width: 100%; }
     transform: translate(-50%, -50%);
     font-size: 30px;
     opacity: 0;
+    pointer-events: none;
 }
 
 .screenshot-image:hover{
@@ -327,6 +352,14 @@ img { width: 100%; }
     .game-info {
         padding-top: 1rem;
         padding-left: 0;
+    }
+
+    .game-h1 {
+        padding-bottom: 1rem;
+    }
+
+    .game-other-details{
+        padding-top: .5rem;
     }
     .screenshot-gallery{
         display: grid;
@@ -364,6 +397,25 @@ img { width: 100%; }
 }
 
 .sys-req-title{ padding-bottom: 1.5rem;}
+
+/* System requirements for web browser games */
+
+.sys-req-web-browser-container{
+    display: flex;
+    gap: 3rem;
+}
+
+@media (max-width: 430px){
+    .sys-req-web-browser-container{
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .web-browser-game-btn{
+        width: 100%;
+    }
+}
 
 /************************************** Footer *******************************************/
 

@@ -13,8 +13,13 @@ app.use(express.static("public"))
 
 
 // Home Page route
-app.get("/", (req, res) => {
-    res.render("index.ejs")
+app.get("/", async (req, res) => { // app will get the full length of total games available to be ready to show the random game button
+
+    const totalGames = await axios.get(APIurl + "/games")
+    
+    var randomPosition = Math.floor(Math.random() * totalGames.data.length); // Stores a random position on the array of objects   
+    var randomId = JSON.stringify(totalGames.data[randomPosition].id) // gets the id value in the position of the random number
+    res.render("index.ejs", { randomId: randomId})  
 })
 
 // "View All games", "filter by genre" and "game details" route
@@ -27,15 +32,17 @@ app.get("/games", async (req, res) => {
     const genreSelected = req.query.category; //gets the query category of the request aka genre
     const idOfGameSelected = req.query.id; //gets the query id of the request (in this case when click on any game card)
 
+
     if (idOfGameSelected) { // if there is any id on the request
         try {
             const gameSelected = await axios.get(APIurl + "/game?id=" + idOfGameSelected)
+            
             res.render("game_details.ejs", { articles: gameSelected.data})
 
         } catch (error) {
             console.log(error.response.data)
-            console.log(error.data.status)
             console.log(error.message)
+            
         }        
     } else if (genreSelected){ //if there is any genre in the request
         try {

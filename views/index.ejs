@@ -21,7 +21,7 @@
 <%- include("partials/header") %>
 <!--  -->
 
-<body>
+<body class="home-page-body">
 
     <div class="content">
         <h1>Looking for a free to play Video game?</h1>
@@ -29,12 +29,20 @@
         </p>
         
         <form action="/games" method="GET">
-            <button class="view-all-button" type="submit">            
+            <button class="button-game-website" type="submit">            
                 View all Games
-            </button></form>
+            </button>
+        </form>
+
+            <button id="random-game"
+                onclick="redirectToRandomGame(<%- randomId %>)"> <!-- Calls function to redirect to the randomised id generated page details -->
+                random
+            </button>
         
     </div>
 
     <%- include("partials/footer") %>
+
+    <script src="/scripts/scripts.js"></script>
 </body>
 </html>
