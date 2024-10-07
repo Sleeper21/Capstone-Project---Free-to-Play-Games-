@@ -80,20 +80,27 @@
             <div class="sys-req-container">
 
                 <div class="sys-req-title">
-                    <h2>System requirements:</h2>
+                    <h2><b>System requirements:</b></h2>
                 </div>
 
                 <div class="sys-req-grid">
-                    <%- articles.minimum_system_requirements.os %>
-                    <%- articles.minimum_system_requirements.processor %>
-                    <%- articles.minimum_system_requirements.memory %>
-                    <%- articles.minimum_system_requirements.graphics %>
-                    <%- articles.minimum_system_requirements.storage %>
+                    <p class="sys-type"><b>Operating System:</b> </p>
+                    <p><%- articles.minimum_system_requirements.os %></p>
+                    <p class="sys-type"><b>Processor (CPU):</b> </p>
+                    <p><%- articles.minimum_system_requirements.processor %></p>
+                    <p class="sys-type"><b>RAM:</b> </p>
+                    <p><%- articles.minimum_system_requirements.memory %></p>
+                    <p class="sys-type"><b>Graphics card:</b> </p>
+                    <p><%- articles.minimum_system_requirements.graphics %></p>
+                    <p class="sys-type"><b>Storage needed:</b> </p>
+                    <p><%- articles.minimum_system_requirements.storage %></p>
                 </div>
             </div>
         </section>
         
     </div> 
+
+    <%- include("partials/footer") %>
 </body>
 
 </html>
