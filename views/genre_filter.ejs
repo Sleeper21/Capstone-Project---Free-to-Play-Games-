@@ -25,10 +25,60 @@
     <div class="games-container">
         
         <% var totalGames = articles.length %>
-        <p class="total-games-message"> We found <%= totalGames %> free games for you! 🎮 </p>
+        <div class="top-text-container">
+
+            <div class="total-games-message-div">
+                <p class="total-games-message"> We found <%= totalGames %> free games for you! 🎮 </p>
+            </div>
+
+            <!-- "Sort by" feature -->
+
+            <div class="sort-button-dropdown">
+
+                <a href="#" class="sort-button">
+                    <span>Sort by</span>
+                    <img class="dropdown-icon" src="images/down-arrow.png" alt="down arrow for sort by">
+                </a>
+
+                                <!-- Sort by multiple parameters (two parameters) -->
+
+                    <div class="sort-by-hidden-content">
+
+                        <form action="/games" method="GET">
+                            <input type="hidden" name="category" value="<%= category %>">
+                            <input type="hidden" name="sort-by" value="release-date">
+                            <button class="sort-option dropdown-btn-style">Release Date </button>
+                        </form>
+                        <form action="/games" method="GET">
+                            <input type="hidden" name="category" value="<%= category %>">
+                            <input type="hidden" name="sort-by" value="alphabetical">
+                            <button class="sort-option dropdown-btn-style">Alphabetical </button>
+                        </form>
+                        <form action="/games" method="GET">
+                            <input type="hidden" name="category" value="<%= category %>">
+                            <input type="hidden" name="sort-by" value="relevance">
+                            <button class="sort-option dropdown-btn-style">Relevance </button>
+                        </form>
+                        <form action="/games" method="GET">
+                            <input type="hidden" name="category" value="<%= category %>">
+                            <input type="hidden" name="platform" value="pc">
+                            <button class="sort-option dropdown-btn-style">PC Only</button>
+                        </form>
+                        <form action="/games" method="GET">
+                            <input type="hidden" name="category" value="<%= category %>">
+                            <input type="hidden" name="platform" value="browser">
+                            <button class="sort-option dropdown-btn-style">Play on Browser </button>
+                        </form>
+                        
+                    </div>
+            </div>
+        </div>
+
+        <!-- Main content -->
         
-        <div class="game-card-container">            
-            <% if (locals.articles) { %>
+        <div class="game-card-container"> 
+            
+            <% if (articles.length > 0 && locals.category) { %>
 
                 <% articles.forEach(article => { %>
 
@@ -36,9 +86,24 @@
                         <img src="<%- article.thumbnail %>" alt="<%- article.title %>">
                         <h2><%- article.title %></h2>
                         <p class="genre-type"> <span>Genre:</span> <%- article.genre %></p>
+                        <p class="genre-type"> <span>Platform:</span> <%- article.platform %></p>
                         <p class="short-description"><%- article.short_description %></p>
                     </a>    
-            <% }) %>     
+            <% }) %>
+            
+            <%} else if (articles.length > 0) { %>
+
+                <% articles.forEach(article => { %>
+
+                    <a href="/games?id=<%- article.id %>" class="game-card">
+                        <img src="<%- article.thumbnail %>" alt="<%- article.title %>">
+                        <h2><%- article.title %></h2>
+                        <p class="genre-type"> <span>Genre:</span> <%- article.genre %></p>
+                        <p class="genre-type"> <span>Platform:</span> <%- article.platform %></p>
+                        <p class="short-description"><%- article.short_description %></p>
+                    </a>    
+            <% }) %> 
+
             <% } else { %>
                 <h2>No games found</h2>
             <% } %>

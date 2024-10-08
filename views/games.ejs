@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free to Play Games</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    
     <!-- Icons -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +25,45 @@
     <div class="games-container">
         
         <% var totalGames = articles.length %>
-        <p class="total-games-message"> We found <%= totalGames %> free games for you! 🎮 </p>
+        <div class="top-text-container">
+
+            <div class="total-games-message-div">
+                <p class="total-games-message"> We found <%= totalGames %> free games for you! 🎮 </p>
+            </div>
+
+            <div class="sort-button-dropdown">
+
+                <a href="#" class="sort-button">
+                    <span>Sort by</span>
+                    <img class="dropdown-icon" src="images/down-arrow.png" alt="down arrow for sort by">
+                </a>
+            
+                    <div class="sort-by-hidden-content">
+                        <form action="/games" method="GET">
+                            <input type="hidden" name="sort-by" value="release-date">
+                            <button class="sort-option dropdown-btn-style">Release Date </button>
+                        </form>
+                        <form action="/games" method="GET">
+                            <input type="hidden" name="sort-by" value="alphabetical">
+                            <button class="sort-option dropdown-btn-style">Alphabetical </button>
+                        </form>
+                        <form action="/games" method="GET">
+                            <input type="hidden" name="sort-by" value="relevance">
+                            <button class="sort-option dropdown-btn-style">Relevance </button>
+                        </form>
+                        <form action="/games" method="GET">
+                            <input type="hidden" name="platform" value="pc">
+                            <button class="sort-option dropdown-btn-style">PC Only</button>
+                        </form>
+                        <form action="/games" method="GET">
+                            <input type="hidden" name="platform" value="browser">
+                            <button class="sort-option dropdown-btn-style">Play on Browser </button>
+                        </form>
+                        
+                    </div>
+            </div>
+        </div>
+        
         
         <div class="game-card-container">            
             <% if (locals.articles) { %>
@@ -36,6 +74,7 @@
                         <img src="<%- article.thumbnail %>" alt="<%- article.title %>">
                         <h2><%- article.title %></h2>
                         <p class="genre-type"> <span>Genre:</span> <%- article.genre %></p>
+                        <p class="genre-type"> <span>Platform:</span> <%- article.platform %></p>
                         <p class="short-description"><%- article.short_description %></p>
                     </a>    
             <% }) %>     
