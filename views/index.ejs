@@ -24,25 +24,34 @@
 <body class="home-page-body">
 
     <div class="content">
-        <h1>Looking for a free to play Video game?</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde odioomnis quaerat alias dolor ad! Numquam vel, beatae nam eius ad saepefugiat minus non deleniti. Ad consequatur id autem!
-        </p>
-        
-        <form action="/games" method="GET">
-            <button class="button-game-website" type="submit">            
-                View all Games
-            </button>
-        </form>
+        <picture class="home-page-image">
+            <img src="/images/Retro-Game.jpg" alt="Browse a free videogame to play">
+        </picture>
 
-            <button id="random-game"
-                onclick="redirectToRandomGame(<%- randomId %>)"> <!-- Calls function to redirect to the randomised id generated page details -->
-                random
-            </button>
+        <div class="home-page-content">
+            <h1>Looking for a free to play Video game?</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde odioomnis quaerat alias dolor ad! Numquam vel, beatae nam eius ad saepefugiat minus non deleniti. Ad consequatur id autem!
+            </p>
+            
+            <div class="home-page-buttons">
+                <form action="/games" method="GET">
+                    <button class="button-game-website" type="submit">            
+                        View all Games
+                    </button>
+                </form>
+
+                    <button id="random-game" class="button-game-website random-button"
+                        onclick="redirectToRandomGame(<%- randomId %>)"> <!-- Calls function to redirect to the randomised id generated page details -->
+                        random
+                    </button>
+            </div>
+        </div>   
         
     </div>
 
-    <%- include("partials/footer") %>
+    
 
     <script src="/scripts/scripts.js"></script>
 </body>
+<%- include("partials/footer") %>
 </html>

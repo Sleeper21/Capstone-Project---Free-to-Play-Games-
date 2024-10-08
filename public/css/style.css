@@ -5,7 +5,7 @@
     --dark-gray: hsl(0, 0%, 15%);
 }
 
-body, h1, h2, h3, h4, p, a, span {
+body, h1, h2, h3, h4, p, a, span, button {
     font-family: "Afacad Flux", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
@@ -138,12 +138,49 @@ img { width: 100%; }
 
 /******************************************** HomePage / index *********************************************/
 .content {
-    padding: 1rem 1.5rem;
-    height: 100%;
+    position: relative;
+    min-height: 70vh;
 }
 
-.home-page-body {
-    height: 100vh;
+.home-page-image{
+    position: absolute;
+}
+
+.home-page-content{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    max-width: 80vh;
+    padding: 2rem 3.5rem;
+    gap: 1.5rem;
+}
+
+.home-page-image > img {
+    opacity: 0.2;
+    filter: blur(2px);
+    pointer-events: none;
+}
+
+.home-page-buttons{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 3rem;
+    gap: 2rem;
+}
+
+.button-game-website {
+    font-family: "Afacad Flux", sans-serif;
+}
+
+.random-button{
+    background-color: var(--white) !important;
+    color: var(--dark-gray) !important;
+    font-family: "Afacad Flux", sans-serif;
+}
+
+.random-button:hover{
+    background-color: var(--hover) !important;
+    color: var(--white) !important;
 }
 
 
