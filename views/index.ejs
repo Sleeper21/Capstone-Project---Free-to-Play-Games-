@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free to Play Games</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    
     <!-- Icons -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,15 +23,12 @@
 
 <body class="home-page-body">
 
-    <div class="content">
-        <picture class="home-page-image">
-            <img src="/images/Retro-Game.jpg" alt="Browse a free videogame to play">
-        </picture>
-
         <div class="home-page-content">
-            <h1>Looking for a free to play Video game?</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde odioomnis quaerat alias dolor ad! Numquam vel, beatae nam eius ad saepefugiat minus non deleniti. Ad consequatur id autem!
-            </p>
+            <div class="home-page-text">
+                <h1>FREE TO PLAY VIDEO GAMES</h1>
+                <p>We have hundreds of video games that free to play. For PC and to play on the web browser.
+                   You can view all the games available, sort the list by name or release date. Filter for you favorite genre, or use the search tool.</p>
+            </div>
             
             <div class="home-page-buttons">
                 <form action="/games" method="GET">
@@ -42,16 +39,12 @@
 
                     <button id="random-game" class="button-game-website random-button"
                         onclick="redirectToRandomGame(<%- randomId %>)"> <!-- Calls function to redirect to the randomised id generated page details -->
-                        random
+                        Give me a random one!
                     </button>
             </div>
         </div>   
-        
-    </div>
-
-    
 
     <script src="/scripts/scripts.js"></script>
 </body>
+
 <%- include("partials/footer") %>
-</html>
