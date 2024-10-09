@@ -23,22 +23,34 @@
 
 <body>
     <div class="games-container">
-        
-        <% var totalGames = articles.length %>
-        <div class="top-text-container">
 
-            <div class="total-games-message-div">
-                <p class="total-games-message"> We found <%= totalGames %> free games for you! 🎮 </p>
-            </div>
+        <% if (articles.length > 0) { %>
+        
+            <% var totalGames = articles.length %>
+            <div class="top-text-container">
+    
+                <div class="total-games-message-div">
+                    <p class="total-games-message"> We found <%= totalGames %> free games for you! 🎮 </p>
+                </div>
+            <% } else { %>
+                <div class="top-text-container">
+    
+                    <div class="total-games-message-div">
+                        <p class="total-games-message"> Sorry </p>
+                    </div>
+    
+                <% } %>
+
+                <!-- Sort by Section -->
 
             <div class="sort-button-dropdown">
 
-                <a href="#" class="sort-button">
+                <a href="#" class="sort-button" onclick="showSortByOptions()">
                     <span>Sort by</span>
                     <img class="dropdown-icon" src="images/down-arrow.png" alt="down arrow for sort by">
                 </a>
             
-                    <div class="sort-by-hidden-content">
+                    <div id="hidden-options" class="sort-by-hidden-content">
                         <form action="/games" method="GET">
                             <input type="hidden" name="sort-by" value="release-date">
                             <button class="sort-option dropdown-btn-style">Release Date </button>
@@ -63,10 +75,13 @@
                     </div>
             </div>
         </div>
-        
-        
-        <div class="game-card-container">            
-            <% if (locals.articles) { %>
+                <!-- end of Sort by Section -->
+
+                <!-- Main content -->
+                
+        <div class="game-card-container">        
+                    
+            <% if (articles.length > 0) { %>
 
                 <% articles.forEach(article => { %>
 

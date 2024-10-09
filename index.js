@@ -25,6 +25,7 @@ app.get("/", async (req, res) => { // get the full length of total games availab
 // "View All games", "filter by genre" and "game details" route
 //if there is a category on the request, it should load "filter by genre page,
 // if there is an id on the request, it should load "game details" page,
+// if used the search bar , show all games matching the typed text
 // if not, show all games
 
 app.get("/games", async (req, res) => {
