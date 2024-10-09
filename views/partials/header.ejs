@@ -47,8 +47,26 @@
 
                     </div>
             </div>
+
+            <!-- Search bar -->
+
             <div class="search">
-                <a href="#"> Search <i class="fa fa-search w3-medium"></i></a>
+                <a href="#">
+                    <span>Search</span> <i class="fa fa-search w3-small"></i>
+                </a>
+
+                <div class="search-hidden-container">
+                    <form class="form-container" action="/games" method="GET">
+                        <div class="input-container">
+                            <input id="search-input" type="search" name="title" placeholder="Type a game">
+                        </div>
+                        <div class="search-btn-container">
+                            <button class="search-btn" type="submit">Search</button>
+                        </div>
+                        
+                    </form>
+                </div>
+
             </div>
                 
         </div>

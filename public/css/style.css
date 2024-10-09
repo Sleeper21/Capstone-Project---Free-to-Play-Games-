@@ -85,7 +85,7 @@ img { width: 100%; }
     gap: 1rem;
 }
 
-/* Nav dropdown*/
+/* Genres dropdown*/
 .dropdown{
      display: inline-block;  /*For the dropdown button fit only the content size*/
 }
@@ -145,6 +145,25 @@ img { width: 100%; }
     box-shadow: 1px 1px 5px hsla(0, 0%, 0%, 0.733);
     border-radius: 10px;
 }
+
+/* Search Bar  */
+
+.search {
+    position: relative;
+}
+
+.search-hidden-container{
+    position: absolute;
+    right: 0;
+    top: 2.5rem;
+}
+
+.form-container{
+    display: flex;
+    gap: .5rem;
+}
+
+
 
 
 /******************************************** HomePage / index *********************************************/
