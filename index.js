@@ -49,9 +49,7 @@ app.get("/games", async (req, res) => {
     } else if (genreSelected && sortBy){ //if there is a "sort by" and a genre filter
         try {
             const multipleSorts = await axios.get(APIurl + "/games?category=" + genreSelected + "&sort-by=" + sortBy)
-            console.log(genreSelected);
-            console.log(sortBy);
-            
+                       
             res.render("genre_filter.ejs", {
                 articles: multipleSorts.data,
                 category: genreSelected,
@@ -65,9 +63,7 @@ app.get("/games", async (req, res) => {
     } else if (genreSelected && filterByPlatform){ //if there is a genre filter and a platform filter
         try {
             const multipleSorts = await axios.get(APIurl + "/games?category=" + genreSelected + "&platform=" + filterByPlatform)
-            console.log(genreSelected);
-            console.log(filterByPlatform);
-            
+                        
             res.render("genre_filter.ejs", {
                 articles: multipleSorts.data,
                 category: genreSelected,
